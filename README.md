@@ -53,7 +53,7 @@ $ npm run start:prod
 
 Go to localhost:3000/response-modification to customize the settings: Response type, response time and cpu utilization value.
 
-With localhost:3000, one gets the status of the database-service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:3000/response-modification.
+With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:3000/response-modification.
 
 With localhost:3000/cpu, one gets the cpu utilization value of the database service.
 
