@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Service</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div id="title">
+        {{!-- <p id=title> Dummy-Service B armed and ready! </p> --}}
+        <h1>Database Service Controls</h1>
+        <form action="/response-modification" method="POST">
+            <p>Response Type Success:</p>
+            {{#if responseType}}
+            <input type="checkbox" checked name="responseType">
+            {{else}}
+            <input type="checkbox" name="responseType">
+            {{/if}}
+            <p>Respone Time:</p>
+            <input type="number" value="{{responseTime}}" name="responseTime">
+            <br>
+            <p>CPU Utilization Load:</p>
+            <input type="number" value="{{cpuLoad}}" name="cpuLoad">
+            <br>
+            <br>
+            <button>Apply</button>
+        </form>
+    </div>
+</body>
+
+</html>
