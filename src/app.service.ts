@@ -1,11 +1,16 @@
 import { Injectable } from '@nestjs/common';
-
+/**
+ * Class with the Main-Functions of the Database Services.
+ * It is possible to change the type of response, either success or error. 
+ * The response time can also be determined.
+ */
 @Injectable()
 export class AppService {
   //determines type of response, that is success or error
   //default is set to success
   private success: boolean = true;
 
+   
   //determines response time
   //default is set to 5 seconds
   private responseTime: number = 5000;
@@ -28,6 +33,7 @@ export class AppService {
   //changes the response type accordingly to the value of the argument
   setResponseType(success: boolean): void {
     this.success = success;
+    
   }
 
   //changes the response time of the response sent by the database service

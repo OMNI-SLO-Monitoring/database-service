@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
+/**
+ * Injectable Class to change the CPU-Load via the UI. 
+ */
 @Injectable()
 export class CpuUtilizationService {
   //default value for cpu load is 70
@@ -10,6 +13,7 @@ export class CpuUtilizationService {
     return this.cpuLoad;
   }
 
+  //Sets the cpuLoad to given Number.
   setCpuLoad(newCpuLoad: number): void {
     this.cpuLoad = newCpuLoad;
   }
