@@ -9,15 +9,15 @@ export class ResponseModificationController {
     private cpuUtilizationService: CpuUtilizationService,
   ) {}
 
-  /** 
-   * the UI is rendered on the given path of the controller
-  */
+  /**
+   * the UI is rendered on the given path of the controller that is 'response-modification'
+   */
   @Get()
   @Render('index')
-  /** 
+  /**
    * the modification values are be passed to the UI in which the
    * modified values are visible
-  */
+   */
   root() {
     return {
       responseType: this.appService.getResponseType(),
@@ -25,7 +25,7 @@ export class ResponseModificationController {
       cpuLoad: this.cpuUtilizationService.simulatedCpuLoad,
     };
   }
-  /** 
+  /**
    * the post request with its modifications of response type and response time
    * as body are checked for input data and the changes are applied
    * hence to the respective variables using the set operations
