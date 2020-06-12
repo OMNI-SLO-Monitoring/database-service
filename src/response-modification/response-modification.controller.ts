@@ -22,7 +22,7 @@ export class ResponseModificationController {
     return {
       responseType: this.appService.getResponseType(),
       responseTime: this.appService.getResponseTime(),
-      cpuLoad: this.cpuUtilizationService.getCpuLoad(),
+      cpuLoad: this.cpuUtilizationService.simulatedCpuLoad,
     };
   }
   /** 
@@ -44,7 +44,7 @@ export class ResponseModificationController {
     }
 
     if (modifications.cpuLoad) {
-      this.cpuUtilizationService.setCpuLoad(modifications.cpuLoad);
+      this.cpuUtilizationService.simulatedCpuLoad =  modifications.cpuLoad;
     }
 
     return;
