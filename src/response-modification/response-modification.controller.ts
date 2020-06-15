@@ -1,5 +1,5 @@
 import { Controller, Get, Render, Post, Body, Redirect } from '@nestjs/common';
-import { AppService } from 'src/app.service';
+import { AppService } from '../app.service';
 import { CpuUtilizationService } from 'cpu-utilization-observer';
 
 @Controller('response-modification')

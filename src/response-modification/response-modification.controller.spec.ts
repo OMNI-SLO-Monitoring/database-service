@@ -1,18 +1,35 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ResponseModificationController } from './response-modification.controller';
+import { AppService } from '../app.service';
+import { CpuUtilizationService } from 'cpu-utilization-observer';
+import { CpuUtilizationModule } from "cpu-utilization-observer";
+
 
 describe('ResponseModification Controller', () => {
-  let controller: ResponseModificationController;
+
+jest.mock("../app.service")
+jest.mock("cpu-utilization-observer")
+
+  let responseModificationController: ResponseModificationController;
+  let appService: AppService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports:[CpuUtilizationService, CpuUtilizationModule],
       controllers: [ResponseModificationController],
+      providers:   [AppService]
     }).compile();
 
-    controller = module.get<ResponseModificationController>(ResponseModificationController);
+    responseModificationController = module.get<ResponseModificationController>(ResponseModificationController);
+    appService = module.get<AppService>(AppService);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(responseModificationController).toBeDefined();
   });
+  
+  afterEach(() => {
+    jest.resetAllMocks();
+ });
+  
 });
