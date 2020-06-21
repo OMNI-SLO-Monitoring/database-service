@@ -3,17 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ResponseModificationController } from './response-modification/response-modification.controller';
 import { CpuUtilizationModule } from 'cpu-utilization-observer';
+import { RequestHandlerModule } from './request-handler/request-handler.module';
 
 @Module({
-  imports: [
-    CpuUtilizationModule
-  ],
-  controllers: [
-    AppController,
-    ResponseModificationController
-  ],
-  providers: [
-    AppService
-  ],
+  imports: [CpuUtilizationModule, RequestHandlerModule],
+  controllers: [AppController, ResponseModificationController],
+  providers: [AppService],
 })
 export class AppModule {}

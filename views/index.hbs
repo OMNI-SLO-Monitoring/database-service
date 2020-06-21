@@ -19,6 +19,12 @@
             {{else}}
             <input type="checkbox" name="responseType">
             {{/if}}
+            <p> Semantical Correctness of Responses</p>
+            {{#if semanticType}}
+            <input type="checkbox" checked name="semanticType">
+            {{else}}
+            <input type="checkbox" name="semanticType">
+            {{/if}}
             <p>Response Time:</p>
             <input type="number" value="{{responseTime}}" name="responseTime">
             <br>
