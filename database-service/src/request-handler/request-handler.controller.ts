@@ -14,15 +14,15 @@ export class RequestHandlerController {
    * Get requests that attempt to fetch the balance will be handled here
    */
   @Get('balance')
-  retrieveBalance(): Promise<any> {
+  retrieveBalance() {
     return this.requestHandler.getBalance();
   }
 
   /**
    * Get requests to the endpoint /customer-data will be handled here
    */
-  @Get('customer-data')
-  retrieveCustomerData(): Promise<any> {
-    return this.requestHandler.getCustomerData();
+  @Get('customer-name')
+  retrieveCustomerName() {
+    return this.requestHandler.getCustomerName();
   }
 }

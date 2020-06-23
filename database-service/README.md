@@ -65,7 +65,7 @@ contain a simple string.
 
 Endpoints:
 - /balance: correct type: number - incorrect type: string
-- /customer-data: correct type: JSON - incorrect type: string 
+- /customer-name: correct type: string - incorrect type: number 
 
 ```
 

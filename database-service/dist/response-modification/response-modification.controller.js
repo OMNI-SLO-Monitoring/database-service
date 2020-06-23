@@ -16,16 +16,19 @@ exports.ResponseModificationController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("../app.service");
 const cpu_utilization_observer_1 = require("cpu-utilization-observer");
+const request_handler_service_1 = require("../request-handler/request-handler.service");
 let ResponseModificationController = class ResponseModificationController {
-    constructor(appService, cpuUtilizationService) {
+    constructor(appService, cpuUtilizationService, requestHandler) {
         this.appService = appService;
         this.cpuUtilizationService = cpuUtilizationService;
+        this.requestHandler = requestHandler;
     }
     root() {
         return {
             responseType: this.appService.getResponseType(),
             responseTime: this.appService.getResponseTime(),
             cpuLoad: this.cpuUtilizationService.simulatedCpuLoad,
+            semanticType: this.requestHandler.semanticType,
         };
     }
     applyModifications(modifications) {
@@ -37,6 +40,12 @@ let ResponseModificationController = class ResponseModificationController {
         }
         else {
             this.appService.setResponseType(false);
+        }
+        if (modifications.semanticType) {
+            this.requestHandler.semanticType = true;
+        }
+        else {
+            this.requestHandler.semanticType = false;
         }
         if (modifications.cpuLoad) {
             this.cpuUtilizationService.simulatedCpuLoad = modifications.cpuLoad;
@@ -62,7 +71,8 @@ __decorate([
 ResponseModificationController = __decorate([
     common_1.Controller('response-modification'),
     __metadata("design:paramtypes", [app_service_1.AppService,
-        cpu_utilization_observer_1.CpuUtilizationService])
+        cpu_utilization_observer_1.CpuUtilizationService,
+        request_handler_service_1.RequestHandlerService])
 ], ResponseModificationController);
 exports.ResponseModificationController = ResponseModificationController;
 //# sourceMappingURL=response-modification.controller.js.map
