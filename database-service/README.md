@@ -51,17 +51,20 @@ $ npm run start:prod
 
 ```
 
-Go to localhost:3000/response-modification to customize the settings: Response type, response time, semantic correctness of response and cpu utilization value.
+Go to [frontend port] to customize the settings: Response type, response time, semantic correctness of response and simulated cpu utilization value.
 
-With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:3000/response-modification.
+With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on [frontend port].
 
-With localhost:3000/cpu, one gets the cpu utilization value of the database service.
+With localhost:3000/cpu/simulated, one gets the simulated cpu utilization value of the database service.
+
+With localhost:3000/cpu, the actual cpu utilization value of the database service on the vm is fetched.
+
 
 # Request types
 
 There are different request types at different endpoints. The endpoint is specified after localhost:3000/request-handler/[endpoint].
-The semantic response type (correct/incorrect) can be adjusted in localhost:3000/response-modification. A semantically incorrect response will
-contain a simple string or a number.
+The semantic response type (correct/incorrect) can be adjusted in the UI of the database service [frontend port]. A semantically incorrect response will
+either contain a simple string or a number in the case of GET requests and dissimilar status codes in the case of POST requests.
 
 Endpoints:
 [GET]:
@@ -69,6 +72,8 @@ Endpoints:
 - /customer-name: correct type: string - incorrect type: number 
 
 [POST]:
-- /add-customer: correct response: resolving Promise with the given body - incorrect response: rejecting Promise with an error message
+Here, we mainly compare the status codes.
+
+- /add-customer: correct response: the user-selected/-expected status code matches with the actual one - incorrect response: different status codes
 ```
 
