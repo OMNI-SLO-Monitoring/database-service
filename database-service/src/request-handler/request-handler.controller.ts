@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { RequestHandlerService } from './request-handler.service';
 
 /**
@@ -24,5 +24,16 @@ export class RequestHandlerController {
   @Get('customer-name')
   retrieveCustomerName() {
     return this.requestHandler.getCustomerName();
+  }
+
+
+  /**
+   * Post requests to the endpoint /add-customer will be handled here
+   * @param body the content of the Post-request 
+   */
+  @Post('add-customer')
+  addCustomer(@Body() customer: string){
+    
+    return this.requestHandler.insertCustomer(customer);
   }
 }
