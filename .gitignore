@@ -1,7 +1,8 @@
 # compiled output
 /dist
+/database-service/dist
 /node_modules
-
+/dist/request-handler
 # Logs
 logs
 *.log

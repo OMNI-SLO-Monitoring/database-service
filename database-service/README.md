@@ -61,11 +61,14 @@ With localhost:3000/cpu, one gets the cpu utilization value of the database serv
 
 There are different request types at different endpoints. The endpoint is specified after localhost:3000/request-handler/[endpoint].
 The semantic response type (correct/incorrect) can be adjusted in localhost:3000/response-modification. A semantically incorrect response will
-contain a simple string.
+contain a simple string or a number.
 
 Endpoints:
+[GET]:
 - /balance: correct type: number - incorrect type: string
 - /customer-name: correct type: string - incorrect type: number 
 
+[POST]:
+- /add-customer: correct response: resolving Promise with the given body - incorrect response: rejecting Promise with an error message
 ```
 
