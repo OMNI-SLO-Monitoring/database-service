@@ -11,27 +11,32 @@ const common_1 = require("@nestjs/common");
 let RequestHandlerService = class RequestHandlerService {
     constructor() {
         this.semanticType = true;
-        this.falseResponse = 'I`m a semantically false response';
     }
     getBalance() {
         if (this.semanticType) {
             return 31;
         }
         else {
-            return this.falseResponse;
+            return 'I`m a semantically false response';
         }
     }
-    getCustomerData() {
+    getCustomerName() {
         if (this.semanticType) {
-            return {
-                'first name': 'Tyler',
-                'last name': 'Durden',
-                age: '36',
-            };
+            return 'Tyler';
         }
         else {
-            return this.falseResponse;
+            return 31;
         }
+    }
+    insertCustomer(customer) {
+        return new Promise((res, rej) => {
+            if (!this.semanticType) {
+                res(`Customer ${customer.body} successfully added!`);
+            }
+            else {
+                rej();
+            }
+        });
     }
 };
 RequestHandlerService = __decorate([

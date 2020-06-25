@@ -23,46 +23,31 @@ let ResponseModificationController = class ResponseModificationController {
         this.cpuUtilizationService = cpuUtilizationService;
         this.requestHandler = requestHandler;
     }
-    root() {
-        return {
-            responseType: this.appService.getResponseType(),
-            responseTime: this.appService.getResponseTime(),
-            cpuLoad: this.cpuUtilizationService.simulatedCpuLoad,
-            semanticType: this.requestHandler.semanticType,
-        };
-    }
     applyModifications(modifications) {
         if (modifications.responseTime) {
             this.appService.setResponseTime(modifications.responseTime);
         }
-        if (modifications.responseType) {
+        if (modifications.responseSuccessChecked) {
             this.appService.setResponseType(true);
         }
         else {
             this.appService.setResponseType(false);
         }
-        if (modifications.semanticType) {
+        if (modifications.correctResponseChecked) {
             this.requestHandler.semanticType = true;
         }
         else {
             this.requestHandler.semanticType = false;
         }
-        if (modifications.cpuLoad) {
-            this.cpuUtilizationService.simulatedCpuLoad = modifications.cpuLoad;
+        if (modifications.cpuUtilizationLoad) {
+            this.cpuUtilizationService.simulatedCpuLoad =
+                modifications.cpuUtilizationLoad;
         }
         return;
     }
 };
 __decorate([
-    common_1.Get(),
-    common_1.Render('index'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], ResponseModificationController.prototype, "root", null);
-__decorate([
     common_1.Post(),
-    common_1.Redirect('/response-modification'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

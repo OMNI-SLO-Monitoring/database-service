@@ -26,14 +26,13 @@ export class RequestHandlerController {
     return this.requestHandler.getCustomerName();
   }
 
-
   /**
    * Post requests to the endpoint /add-customer will be handled here
-   * @param body the content of the Post-request 
+   * @param body the content of the Post-request
    */
   @Post('add-customer')
-  addCustomer(@Body() customer: string){
-    
+  addCustomer(@Body() customer) {
+    console.log(customer.body);
     return this.requestHandler.insertCustomer(customer);
   }
 }

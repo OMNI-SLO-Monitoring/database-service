@@ -6,8 +6,6 @@ import { Injectable } from '@nestjs/common';
  */
 @Injectable()
 export class RequestHandlerService {
-
-  
   //determines semantic correctness of response
   semanticType: boolean = true;
 
@@ -40,13 +38,13 @@ export class RequestHandlerService {
    * Returns the content of the given body from a Post Request as semantically correct.
    * Otherwise returns error message
    */
-  insertCustomer(customer: string): any {
+  insertCustomer(customer): any {
     return new Promise((res, rej) => {
-      if(this.semanticType) {
-        res(`Customer: ${customer} successfully added`);
+      if (!this.semanticType) {
+        res(`Customer ${customer.body} successfully added!`);
       } else {
-        rej(`Failed to add customer.`);
+        rej();
       }
-    })
+    });
   }
 }

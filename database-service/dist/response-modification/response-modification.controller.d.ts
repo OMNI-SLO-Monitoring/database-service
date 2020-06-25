@@ -6,11 +6,5 @@ export declare class ResponseModificationController {
     private cpuUtilizationService;
     private requestHandler;
     constructor(appService: AppService, cpuUtilizationService: CpuUtilizationService, requestHandler: RequestHandlerService);
-    root(): {
-        responseType: boolean;
-        responseTime: number;
-        cpuLoad: number;
-        semanticType: boolean;
-    };
     applyModifications(modifications: any): void;
 }
