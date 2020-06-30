@@ -59,6 +59,8 @@ With localhost:3000/cpu/simulated, one gets the simulated cpu utilization value 
 
 With localhost:3000/cpu, the actual cpu utilization value of the database service on the vm is fetched.
 
+With localhost:3000/api you can see all the Endpoints listed below, generated from the Swagger IO. 
+At localhost:3000/api-json is the Swagger JSON file.
 
 # Request types
 
