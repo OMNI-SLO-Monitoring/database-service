@@ -51,9 +51,9 @@ $ npm run start:prod
 
 ```
 
-Go to [frontend port] to customize the settings: Response type, response time, semantic correctness of response and simulated cpu utilization value.
+Go to localhost:4000 to customize the settings: Response type, response time, semantic correctness of response and simulated cpu utilization value.
 
-With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on [frontend port].
+With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:4000.
 
 With localhost:3000/cpu/simulated, one gets the simulated cpu utilization value of the database service.
 
@@ -63,7 +63,7 @@ With localhost:3000/cpu, the actual cpu utilization value of the database servic
 # Request types
 
 There are different request types at different endpoints. The endpoint is specified after localhost:3000/request-handler/[endpoint].
-The semantic response type (correct/incorrect) can be adjusted in the UI of the database service [frontend port]. A semantically incorrect response will
+The semantic response type (correct/incorrect) can be adjusted in the UI of the database service at localhost:4000. A semantically incorrect response will
 either contain a simple string or a number in the case of GET requests and dissimilar status codes in the case of POST requests.
 
 Endpoints:
