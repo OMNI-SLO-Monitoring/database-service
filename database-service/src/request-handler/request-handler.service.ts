@@ -7,7 +7,22 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class RequestHandlerService {
   //determines semantic correctness of response
-  semanticType: boolean = true;
+  private semanticType: boolean = true;
+
+  /**
+   * Sets the semantic type (correct/false) for the requests
+   * @param semanticType user-adjustable semantic type
+   */
+  setSemanticType(semanticType: boolean): void {
+    this.semanticType = semanticType;
+  }
+
+  /**
+   * Gets the semantic type (correct/false) for the requests
+   */
+  getSemanticType(): boolean {
+    return this.semanticType;
+  }
 
   /**
    * Returns a fixed balance as a semantically correct
