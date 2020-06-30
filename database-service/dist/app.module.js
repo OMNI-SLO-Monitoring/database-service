@@ -12,20 +12,14 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const response_modification_controller_1 = require("./response-modification/response-modification.controller");
 const cpu_utilization_observer_1 = require("cpu-utilization-observer");
+const request_handler_module_1 = require("./request-handler/request-handler.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [
-            cpu_utilization_observer_1.CpuUtilizationModule
-        ],
-        controllers: [
-            app_controller_1.AppController,
-            response_modification_controller_1.ResponseModificationController
-        ],
-        providers: [
-            app_service_1.AppService
-        ],
+        imports: [cpu_utilization_observer_1.CpuUtilizationModule, request_handler_module_1.RequestHandlerModule],
+        controllers: [app_controller_1.AppController, response_modification_controller_1.ResponseModificationController],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

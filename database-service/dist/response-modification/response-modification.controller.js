@@ -16,44 +16,38 @@ exports.ResponseModificationController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("../app.service");
 const cpu_utilization_observer_1 = require("cpu-utilization-observer");
+const request_handler_service_1 = require("../request-handler/request-handler.service");
 let ResponseModificationController = class ResponseModificationController {
-    constructor(appService, cpuUtilizationService) {
+    constructor(appService, cpuUtilizationService, requestHandler) {
         this.appService = appService;
         this.cpuUtilizationService = cpuUtilizationService;
-    }
-    root() {
-        return {
-            responseType: this.appService.getResponseType(),
-            responseTime: this.appService.getResponseTime(),
-            cpuLoad: this.cpuUtilizationService.simulatedCpuLoad,
-        };
+        this.requestHandler = requestHandler;
     }
     applyModifications(modifications) {
         if (modifications.responseTime) {
             this.appService.setResponseTime(modifications.responseTime);
         }
-        if (modifications.responseType) {
+        if (modifications.responseSuccessChecked) {
             this.appService.setResponseType(true);
         }
         else {
             this.appService.setResponseType(false);
         }
-        if (modifications.cpuLoad) {
-            this.cpuUtilizationService.simulatedCpuLoad = modifications.cpuLoad;
+        if (modifications.correctResponseChecked) {
+            this.requestHandler.semanticType = true;
+        }
+        else {
+            this.requestHandler.semanticType = false;
+        }
+        if (modifications.cpuUtilizationLoad) {
+            this.cpuUtilizationService.simulatedCpuLoad =
+                modifications.cpuUtilizationLoad;
         }
         return;
     }
 };
 __decorate([
-    common_1.Get(),
-    common_1.Render('index'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], ResponseModificationController.prototype, "root", null);
-__decorate([
     common_1.Post(),
-    common_1.Redirect('/response-modification'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -62,7 +56,8 @@ __decorate([
 ResponseModificationController = __decorate([
     common_1.Controller('response-modification'),
     __metadata("design:paramtypes", [app_service_1.AppService,
-        cpu_utilization_observer_1.CpuUtilizationService])
+        cpu_utilization_observer_1.CpuUtilizationService,
+        request_handler_service_1.RequestHandlerService])
 ], ResponseModificationController);
 exports.ResponseModificationController = ResponseModificationController;
 //# sourceMappingURL=response-modification.controller.js.map

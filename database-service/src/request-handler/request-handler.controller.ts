@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { RequestHandlerService } from './request-handler.service';
 
 /**
@@ -14,15 +14,25 @@ export class RequestHandlerController {
    * Get requests that attempt to fetch the balance will be handled here
    */
   @Get('balance')
-  retrieveBalance(): Promise<any> {
+  retrieveBalance() {
     return this.requestHandler.getBalance();
   }
 
   /**
    * Get requests to the endpoint /customer-data will be handled here
    */
-  @Get('customer-data')
-  retrieveCustomerData(): Promise<any> {
-    return this.requestHandler.getCustomerData();
+  @Get('customer-name')
+  retrieveCustomerName() {
+    return this.requestHandler.getCustomerName();
+  }
+
+  /**
+   * Post requests to the endpoint /add-customer will be handled here
+   * @param body the content of the Post-request
+   */
+  @Post('add-customer')
+  addCustomer(@Body() customer) {
+    console.log(customer.body);
+    return this.requestHandler.insertCustomer(customer);
   }
 }

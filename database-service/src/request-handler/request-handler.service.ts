@@ -8,8 +8,6 @@ import { Injectable } from '@nestjs/common';
 export class RequestHandlerService {
   //determines semantic correctness of response
   semanticType: boolean = true;
-  //basic semantically incorrect response
-  falseResponse: string = 'I`m a semantically false response';
 
   /**
    * Returns a fixed balance as a semantically correct
@@ -19,23 +17,34 @@ export class RequestHandlerService {
     if (this.semanticType) {
       return 31;
     } else {
-      return this.falseResponse;
+      return 'I`m a semantically false response';
     }
   }
 
   /**
-   * Returns fixed customer data in JSON as semantically correct
-   * response, and a simple string as a semantically incorrect response
+   * Returns fixed customer name as string as semantically correct
+   * response, and a simple number as a semantically incorrect response
    */
-  getCustomerData(): any {
+  getCustomerName(): any {
     if (this.semanticType) {
-      return {
-        'first name': 'Tyler',
-        'last name': 'Durden',
-        age: '36',
-      };
+      return 'Tyler';
     } else {
-      return this.falseResponse;
+      return 31;
     }
+  }
+
+  /**
+   * Simulates a add Customer request.
+   * Returns the content of the given body from a Post Request as semantically correct.
+   * Otherwise returns error message
+   */
+  insertCustomer(customer): any {
+    return new Promise((res, rej) => {
+      if (this.semanticType) {
+        res(`Customer ${customer.body} successfully added!`);
+      } else {
+        rej();
+      }
+    });
   }
 }
