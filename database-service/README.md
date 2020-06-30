@@ -70,12 +70,12 @@ either contain a simple string or a number in the case of GET requests and dissi
 
 Endpoints:
 [GET]:
-- /balance: correct type: number - incorrect type: string
-- /customer-name: correct type: string - incorrect type: number 
+- balance: correct type: number - incorrect type: string
+- customer-name: correct type: string - incorrect type: number 
 
 [POST]:
 Here, we mainly compare the status codes.
 
-- /add-customer: correct response: the user-selected/-expected status code matches with the actual one - incorrect response: different status codes
+- add-customer: correct response: the user-selected/-expected status code matches with the actual one - incorrect response: different status codes
 ```
 
