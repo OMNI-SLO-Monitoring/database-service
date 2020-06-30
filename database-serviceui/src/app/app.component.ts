@@ -10,7 +10,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {}
 
-  backendUrl = 'http://localhost:3000';
+  backendUrl = 'http://localhost:3000/response-modification';
   // two way binding to ui inputs
   responseSuccessChecked = false;
   correctResponseChecked = false;
