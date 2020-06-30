@@ -16,7 +16,10 @@ export class AppComponent {
   correctResponseChecked = false;
   responseTime = 5000;
   cpuUtilizationLoad = 60;
-
+  /**
+   * Creates the Json that can be send to the backend depending on the
+   * input at the frontend
+   */
   createMessage(): JSON {
     const message = '{"responseSuccessChecked" : "'
       + this.responseSuccessChecked + '", "correctResponseChecked" : "'
@@ -25,11 +28,13 @@ export class AppComponent {
       + this.cpuUtilizationLoad + '" }';
     return JSON.parse(message);
   }
-
+  /**
+   * Sends the inputs of the frontend via a JSON to the backend
+   */
   saveConfig() {
     this.http.post(this.backendUrl, this.createMessage()).subscribe(
-      res => console.log(`Report sent to monitor at ${this.backendUrl}`),
-      err => console.log(`Monitor at ${this.backendUrl} not available`),
+      res => console.log(`Report sent to backend at ${this.backendUrl}`),
+      err => console.log(`Backend at ${this.backendUrl} not available`),
     );
   }
 }
