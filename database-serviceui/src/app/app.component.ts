@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AppComponent {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   backendUrl = 'http://localhost:3000/response-modification';
   // two way binding to ui inputs
@@ -20,13 +20,14 @@ export class AppComponent {
    * Creates the Json that can be send to the backend depending on the
    * input at the frontend
    */
-  createMessage(): JSON {
-    const message = '{"responseSuccessChecked" : "'
-      + this.responseSuccessChecked + '", "correctResponseChecked" : "'
-      + this.correctResponseChecked + '", "responseTime" : "'
-      + this.responseTime + '", "cpuUtilizationLoad" : "'
-      + this.cpuUtilizationLoad + '" }';
-    return JSON.parse(message);
+  createMessage() {
+    const message = {
+      responseSuccessChecked: this.responseSuccessChecked,
+      correctResponseChecked: this.correctResponseChecked,
+      responseTime: this.responseTime,
+      cpuUtilizationLoad: this.cpuUtilizationLoad
+    };
+    return message;
   }
   /**
    * Sends the inputs of the frontend via a JSON to the backend
