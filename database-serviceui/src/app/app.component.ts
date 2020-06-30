@@ -12,8 +12,8 @@ export class AppComponent {
 
   backendUrl = 'http://localhost:3000/response-modification';
   // two way binding to ui inputs
-  responseSuccessChecked = false;
-  correctResponseChecked = false;
+  responseSuccessChecked = true;
+  correctResponseChecked = true;
   responseTime = 5000;
   cpuUtilizationLoad = 60;
   /**
