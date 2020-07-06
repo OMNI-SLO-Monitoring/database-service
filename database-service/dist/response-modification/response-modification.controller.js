@@ -24,6 +24,7 @@ let ResponseModificationController = class ResponseModificationController {
         this.requestHandler = requestHandler;
     }
     applyModifications(modifications) {
+        console.log('hi');
         if (modifications.responseTime) {
             this.appService.setResponseTime(modifications.responseTime);
         }
@@ -34,10 +35,10 @@ let ResponseModificationController = class ResponseModificationController {
             this.appService.setResponseType(false);
         }
         if (modifications.correctResponseChecked) {
-            this.requestHandler.semanticType = true;
+            this.requestHandler.setSemanticType(true);
         }
         else {
-            this.requestHandler.semanticType = false;
+            this.requestHandler.setSemanticType(false);
         }
         if (modifications.cpuUtilizationLoad) {
             this.cpuUtilizationService.simulatedCpuLoad =

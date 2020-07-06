@@ -1,5 +1,7 @@
 export declare class RequestHandlerService {
-    semanticType: boolean;
+    private semanticType;
+    setSemanticType(semanticType: boolean): void;
+    getSemanticType(): boolean;
     getBalance(): any;
     getCustomerName(): any;
     insertCustomer(customer: any): any;

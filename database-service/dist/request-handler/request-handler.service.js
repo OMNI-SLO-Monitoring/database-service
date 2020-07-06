@@ -12,6 +12,12 @@ let RequestHandlerService = class RequestHandlerService {
     constructor() {
         this.semanticType = true;
     }
+    setSemanticType(semanticType) {
+        this.semanticType = semanticType;
+    }
+    getSemanticType() {
+        return this.semanticType;
+    }
     getBalance() {
         if (this.semanticType) {
             return 31;
