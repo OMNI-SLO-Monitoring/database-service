@@ -19,6 +19,9 @@ let AppController = class AppController {
     async respondToRequest() {
         return this.appService.sendResponseMessage();
     }
+    async returnAccountWorth() {
+        return this.appService.getAccountWorth();
+    }
 };
 __decorate([
     common_1.Get(),
@@ -26,6 +29,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "respondToRequest", null);
+__decorate([
+    common_1.Get('account-worth'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "returnAccountWorth", null);
 AppController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService])

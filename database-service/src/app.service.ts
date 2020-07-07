@@ -42,7 +42,7 @@ export class AppService {
         } else {
           rej();
         }
-      });
+      }, this.responseTime);
     });
   }
 

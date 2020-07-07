@@ -25,6 +25,18 @@ let AppService = class AppService {
             }, this.responseTime);
         });
     }
+    async getAccountWorth() {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                if (this.success) {
+                    res(9000);
+                }
+                else {
+                    rej();
+                }
+            }, this.responseTime);
+        });
+    }
     setResponseType(success) {
         this.success = success;
     }
