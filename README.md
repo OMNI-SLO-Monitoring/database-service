@@ -1,0 +1,2 @@
+THe database service is not an actual database service but rather represents one in a our monitoring scenarios.
+In this repository one can find the backend as well as the frontend of the database service and more information regarding both components in their respective folders.
