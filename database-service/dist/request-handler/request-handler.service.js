@@ -36,7 +36,7 @@ let RequestHandlerService = class RequestHandlerService {
     }
     insertCustomer(customer) {
         return new Promise((res, rej) => {
-            if (this.semanticType) {
+            if (!this.semanticType) {
                 res(`Customer ${customer.body} successfully added!`);
             }
             else {

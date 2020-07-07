@@ -12,9 +12,17 @@ export class AppController {
    * get requests will be handled here by sending a response, modifiable in its type (success/error)
    * and time of responding
    * the app service component is responsible for creating this response and its properties
-  */
+   */
   @Get()
   async respondToRequest(): Promise<any> {
     return this.appService.sendResponseMessage();
+  }
+
+  /**
+   * requests to this endpoint will yield the account worth, fetched by the app service
+   */
+  @Get('account-worth')
+  async returnAccountWorth(): Promise<any> {
+    return this.appService.getAccountWorth();
   }
 }
