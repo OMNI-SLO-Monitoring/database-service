@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 let RequestHandlerService = class RequestHandlerService {
     constructor() {
         this.semanticType = true;
+        this.responseTime = 5000;
     }
     setSemanticType(semanticType) {
         this.semanticType = semanticType;
@@ -18,21 +19,29 @@ let RequestHandlerService = class RequestHandlerService {
     getSemanticType() {
         return this.semanticType;
     }
-    getBalance() {
-        if (this.semanticType) {
-            return 31;
-        }
-        else {
-            return 'I`m a semantically false response';
-        }
+    async getBalance() {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                if (this.semanticType) {
+                    res(31);
+                }
+                else {
+                    res('I`m a semantically false response');
+                }
+            }, this.responseTime);
+        });
     }
     getCustomerName() {
-        if (this.semanticType) {
-            return 'Tyler';
-        }
-        else {
-            return 31;
-        }
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                if (this.semanticType) {
+                    res('Jeff');
+                }
+                else {
+                    res(31);
+                }
+            }, this.responseTime);
+        });
     }
     insertCustomer(customer) {
         return new Promise((res, rej) => {
@@ -43,6 +52,12 @@ let RequestHandlerService = class RequestHandlerService {
                 rej();
             }
         });
+    }
+    setResponseTime(responseTime) {
+        this.responseTime = responseTime;
+    }
+    getResponseTime() {
+        return this.responseTime;
     }
 };
 RequestHandlerService = __decorate([

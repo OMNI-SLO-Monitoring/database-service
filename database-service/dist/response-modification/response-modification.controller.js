@@ -24,9 +24,9 @@ let ResponseModificationController = class ResponseModificationController {
         this.requestHandler = requestHandler;
     }
     applyModifications(modifications) {
-        console.log('hi');
         if (modifications.responseTime) {
             this.appService.setResponseTime(modifications.responseTime);
+            this.requestHandler.setResponseTime(modifications.responseTime);
         }
         if (modifications.responseSuccessChecked) {
             this.appService.setResponseType(true);

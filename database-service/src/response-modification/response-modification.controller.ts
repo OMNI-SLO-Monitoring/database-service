@@ -17,9 +17,9 @@ export class ResponseModificationController {
    */
   @Post()
   applyModifications(@Body() modifications): void {
-    console.log('hi');
     if (modifications.responseTime) {
       this.appService.setResponseTime(modifications.responseTime);
+      this.requestHandler.setResponseTime(modifications.responseTime);
     }
 
     if (modifications.responseSuccessChecked) {

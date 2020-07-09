@@ -19,7 +19,7 @@ let RequestHandlerController = class RequestHandlerController {
     constructor(requestHandler) {
         this.requestHandler = requestHandler;
     }
-    retrieveBalance() {
+    async retrieveBalance() {
         return this.requestHandler.getBalance();
     }
     retrieveCustomerName() {
@@ -34,7 +34,7 @@ __decorate([
     common_1.Get('balance'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], RequestHandlerController.prototype, "retrieveBalance", null);
 __decorate([
     common_1.Get('customer-name'),

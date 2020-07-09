@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { resolve } from 'path';
 
 /**
  * This service is responsible for responding to the requests the request-handler component
@@ -8,6 +9,9 @@ import { Injectable } from '@nestjs/common';
 export class RequestHandlerService {
   //determines semantic correctness of response
   private semanticType: boolean = true;
+
+  //determines response time, default is set to 5 seconds
+  private responseTime: number = 5000;
 
   /**
    * Sets the semantic type (correct/false) for the requests
@@ -28,24 +32,32 @@ export class RequestHandlerService {
    * Returns a fixed balance as a semantically correct
    * response, and a string as a semantically incorrect response
    */
-  getBalance(): any {
-    if (this.semanticType) {
-      return 31;
-    } else {
-      return 'I`m a semantically false response';
-    }
+  async getBalance(): Promise<any> {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        if (this.semanticType) {
+          res(31);
+        } else {
+          res('I`m a semantically false response');
+        }
+      }, this.responseTime);
+    });
   }
 
   /**
    * Returns fixed customer name as string as semantically correct
    * response, and a simple number as a semantically incorrect response
    */
-  getCustomerName(): any {
-    if (this.semanticType) {
-      return 'Tyler';
-    } else {
-      return 31;
-    }
+  getCustomerName() {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        if (this.semanticType) {
+          res('Jeff');
+        } else {
+          res(31);
+        }
+      }, this.responseTime);
+    });
   }
 
   /**
@@ -61,5 +73,13 @@ export class RequestHandlerService {
         rej();
       }
     });
+  }
+
+  setResponseTime(responseTime: number): void {
+    this.responseTime = responseTime;
+  }
+
+  getResponseTime(): number {
+    return this.responseTime;
   }
 }
