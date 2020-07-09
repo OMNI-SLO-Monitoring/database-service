@@ -8,15 +8,15 @@ describe('RequestHandler Controller', () => {
     expect(true).toBe(true);
   });
 
-  // beforeEach(async () => {
-  //   const module: TestingModule = await Test.createTestingModule({
-  //     controllers: [RequestHandlerController],
-  //   }).compile();
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [RequestHandlerController],
+    }).compile();
 
-  //   controller = module.get<RequestHandlerController>(RequestHandlerController);
-  // });
+    controller = module.get<RequestHandlerController>(RequestHandlerController);
+  });
 
-  // it('should be defined', () => {
-  //   expect(controller).toBeDefined();
-  // });
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
+  });
 });
