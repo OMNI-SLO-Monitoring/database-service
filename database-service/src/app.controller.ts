@@ -10,7 +10,7 @@ export class AppController {
 
   /**
    * get requests will be handled here by sending a response, modifiable in its type (success/error)
-   * and time of responding
+   * and response time
    * the app service component is responsible for creating this response and its properties
    */
   @Get()
