@@ -1,4 +1,4 @@
-name: automated test backend
+name: build database-service backend
 on: [pull_request]
 
 jobs:
@@ -19,9 +19,6 @@ jobs:
     - name: npm install
       run: |
         cd database-service; npm install --dev
-    - name: run unit test
+    - name: build
       run: | 
-        cd database-service; npm run test
-    - name: run e2e test
-      run : |
-        cd database-service; npm run test:e2e
+        cd database-service; npm run-script build
