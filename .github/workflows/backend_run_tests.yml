@@ -1,4 +1,4 @@
-name: automated test frontend
+name: run tests database-service backend
 on: [pull_request]
 
 jobs:
@@ -18,10 +18,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install
       run: |
-        cd database-serviceui; npm install --dev
+        cd database-service; npm install --dev
     - name: run unit test
-      run: |
-        cd database-serviceui; npm run autotest  
+      run: | 
+        cd database-service; npm run test
     - name: run e2e test
-      run: |
-        cd database-serviceui; npm run autoe2e
+      run : |
+        cd database-service; npm run test:e2e
