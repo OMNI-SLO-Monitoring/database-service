@@ -7,11 +7,11 @@ defaults:
 
 jobs: 
   build: 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-lastest]
+        os: [ubuntu-latest]
         node-version: [12.x] 
 
     steps:
@@ -28,11 +28,11 @@ jobs:
         npm run-script build
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-lastest]
+        os: [ubuntu-latest]
         node-version: [12.x] 
 
     steps:
