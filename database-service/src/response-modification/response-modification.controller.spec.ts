@@ -3,25 +3,28 @@ import { ResponseModificationController } from './response-modification.controll
 import { AppService } from '../app.service';
 import { CpuUtilizationService } from 'cpu-utilization-observer';
 import { CpuUtilizationModule } from "cpu-utilization-observer";
+import { RequestHandlerService } from '../request-handler/request-handler.service';
 
 
 describe('ResponseModification Controller', () => {
 
 jest.mock("../app.service")
 jest.mock("cpu-utilization-observer")
+jest.mock('../request-handler/request-handler.service')
 
   let responseModificationController: ResponseModificationController;
   let appService: AppService;
-
+  let requestHandlerService : RequestHandlerService;
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports:[CpuUtilizationService, CpuUtilizationModule],
       controllers: [ResponseModificationController],
-      providers:   [AppService]
+      providers:   [AppService, RequestHandlerService]
     }).compile();
 
     responseModificationController = module.get<ResponseModificationController>(ResponseModificationController);
     appService = module.get<AppService>(AppService);
+    requestHandlerService = module.get<RequestHandlerService>(RequestHandlerService);
   });
 
   it('should be defined', () => {

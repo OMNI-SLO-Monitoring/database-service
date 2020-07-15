@@ -1,7 +1,7 @@
 import { Controller, Get, Render, Post, Body, Redirect } from '@nestjs/common';
 import { AppService } from '../app.service';
 import { CpuUtilizationService } from 'cpu-utilization-observer';
-import { RequestHandlerService } from 'src/request-handler/request-handler.service';
+import { RequestHandlerService } from '../request-handler/request-handler.service';
 
 @Controller('response-modification')
 export class ResponseModificationController {
