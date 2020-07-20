@@ -17,7 +17,7 @@ let AppService = class AppService {
         return new Promise((res, rej) => {
             setTimeout(() => {
                 if (this.success) {
-                    res();
+                    res('Ok');
                 }
                 else {
                     rej();
