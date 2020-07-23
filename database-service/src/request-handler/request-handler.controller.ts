@@ -14,7 +14,7 @@ export class RequestHandlerController {
    * Get requests that attempt to fetch the balance will be handled here
    */
   @Get('balance')
-  retrieveBalance() {
+  async retrieveBalance(): Promise<any> {
     return this.requestHandler.getBalance();
   }
 
