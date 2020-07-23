@@ -39,8 +39,7 @@ export class ResponseModificationController {
     }
 
     if (modifications.cpuUtilizationLoad) {
-      this.cpuUtilizationService.simulatedCpuLoad =
-        modifications.cpuUtilizationLoad;
+      this.cpuUtilizationService.simulatedCpuLoad = modifications.cpuUtilizationLoad;
     }
 
     return;
