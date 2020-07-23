@@ -1,4 +1,4 @@
-import { Controller, Get, Render, Post, Body, Redirect } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { AppService } from '../app.service';
 import { CpuUtilizationService } from 'cpu-utilization-observer';
 import { RequestHandlerService } from '../request-handler/request-handler.service';

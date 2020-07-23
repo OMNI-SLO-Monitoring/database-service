@@ -16,9 +16,10 @@ export class AppComponent {
   correctResponseChecked = true;
   responseTime = 5000;
   cpuUtilizationLoad = 60;
-  /**
+   /**
    * Creates the Json that can be send to the backend depending on the
    * input at the frontend
+   * @returns the error message json that was created 
    */
   createMessage() {
     const message = {
