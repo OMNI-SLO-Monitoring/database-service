@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 /**
- * Controller to handel request, modify its response and time of responding
+ * Controller to handle request, modify its response and time of responding
  */
 @Controller()
 export class AppController {
