@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { resolve } from 'path';
 
 /**
  * This service is responsible for responding to the requests the request-handler component
