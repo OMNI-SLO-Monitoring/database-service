@@ -1,15 +1,19 @@
-import { Controller, Get, Render, Post, Body, Redirect } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { AppService } from '../app.service';
 import { CpuUtilizationService } from 'cpu-utilization-observer';
 import { RequestHandlerService } from '../request-handler/request-handler.service';
 
+/**
+ *  Controller to handle request, modify the response time, response time
+ *  and semantic type. On port /response-modification
+ */
 @Controller('response-modification')
 export class ResponseModificationController {
   constructor(
     private appService: AppService,
     private cpuUtilizationService: CpuUtilizationService,
     private requestHandler: RequestHandlerService,
-  ) {}
+  ) { }
   /**
    * the post request with its modifications of response type and response time
    * as body are checked for input data and the changes are applied
