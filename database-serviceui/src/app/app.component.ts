@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient) { }
 
-  backendUrl = 'http://localhost:3000/response-modification';
+  backendUrl = environment.BACKEND_DB_SERVICE_URL+'response-modification';
   // two way binding to ui inputs
   responseSuccessChecked = true;
   correctResponseChecked = true;
