@@ -68,17 +68,16 @@ At localhost:3000/api-json is the Swagger JSON file.
 # Request types
 
 There are different request types at different endpoints. The endpoint is specified after localhost:3000/request-handler/[endpoint].
-The semantic response type (correct/incorrect) can be adjusted in the UI of the database service at localhost:4000. A semantically incorrect response will
-either contain a simple string or a number in the case of GET requests and dissimilar status codes in the case of POST requests.
+The semantic response type (correct/incorrect) can be adjusted in the UI of the database service at localhost:4000. A semantically incorrect response will either contain a simple string or a number in the case of GET requests and the request is rejected when a request is sent to the POST endpoint in the case of the incorrect response. The correct response will lead to a message denoting the success.
 
 Endpoints:
 [GET]:
-- balance: correct type: number - incorrect type: string
-- customer-name: correct type: string - incorrect type: number 
+- balance: semantically correct response: 31 - semantically incorrect response: "Jeff"
+- customer-name: semantically correct response: "Jeff" - semantically incorrect response: 31
 
 [POST]:
 Here, we mainly compare the status codes.
 
-- add-customer: correct response: the user-selected/-expected status code matches with the actual one - incorrect response: different status codes
+- add-customer: semantically correct response: "Customer [post body] successfully added!" - semantically incorrect response is the rejection of the request
 ```
 
