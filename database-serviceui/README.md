@@ -7,3 +7,7 @@ Note: For changes to be updated, the backend of the Database Service must be up 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4000/` to use the UI.
 
+## The UI
+
+![Database Service UI](documentation/databaseserviceui.PNG)
+
