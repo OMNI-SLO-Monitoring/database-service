@@ -38,7 +38,7 @@ export class RequestHandlerService {
         if (this.semanticType) {
           res(31);
         } else {
-          res('I`m a semantically false response');
+          res('Jeff');
         }
       }, this.responseTime);
     });
