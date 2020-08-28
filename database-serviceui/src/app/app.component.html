@@ -14,19 +14,45 @@
 </style>
 
 <mat-toolbar color="primary">Database service</mat-toolbar>
-
 <mat-card>
   <mat-card-title>Database Service Control</mat-card-title>
-  <mat-checkbox [(ngModel)]="responseSuccessChecked">Response Type Success</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="correctResponseChecked">Semantical Correctness of Responses</mat-checkbox>
+  <br />
+  <mat-checkbox [(ngModel)]="responseSuccessChecked"
+    >Response Type Success</mat-checkbox
+  >
+  <p>
+    <b>Note</b>: The Response Type adjustment applies to only these endpoints:
+  </p>
+  <ul>
+    <li>/</li>
+    <li>/account-worth</li>
+  </ul>
+  <br />
+  <mat-divider></mat-divider>
+  <br />
+  <mat-checkbox [(ngModel)]="correctResponseChecked"
+    >Semantical Correctness of Responses</mat-checkbox
+  >
+  <p>
+    <b>Note</b>: The Semantical Correctness adjustment applies to only these
+    endpoints:
+  </p>
+  <ul>
+    <li>/request-handler/balance</li>
+    <li>/request-handler/customer-name</li>
+    <li>/request-handler/add-customer</li>
+  </ul>
+  <br />
+  <mat-divider></mat-divider>
+  <br />
+  <p class="title">Response Time and CPU Utilization</p>
   <mat-form-field appearance="outline">
     <mat-label>Response Time</mat-label>
-    <input matInput [(ngModel)]="responseTime">
+    <input matInput [(ngModel)]="responseTime" />
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>CPU Utilization Load</mat-label>
-    <input matInput [(ngModel)]="cpuUtilizationLoad">
+    <input matInput [(ngModel)]="cpuUtilizationLoad" />
   </mat-form-field>
   <button type="button" mat-raised-button color="accent" (click)="saveConfig()">
     Apply
