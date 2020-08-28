@@ -28,7 +28,7 @@
     <li>/account-worth</li>
   </ul>
   <br />
-  <mat-divider></mat-divider>
+
   <br />
   <mat-checkbox [(ngModel)]="correctResponseChecked"
     >Semantical Correctness of Responses</mat-checkbox
@@ -43,7 +43,6 @@
     <li>/request-handler/add-customer</li>
   </ul>
   <br />
-  <mat-divider></mat-divider>
 
   <p class="title">Response Time and CPU Utilization</p>
   <mat-form-field appearance="outline">
@@ -54,7 +53,10 @@
     <mat-label>CPU Utilization Load</mat-label>
     <input matInput [(ngModel)]="cpuUtilizationLoad" />
   </mat-form-field>
+  <br />
+
+  <br />
   <button type="button" mat-raised-button color="accent" (click)="saveConfig()">
-    Apply
+    Apply Adjustments
   </button>
 </mat-card>
