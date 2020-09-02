@@ -28,6 +28,7 @@
     "@nestjs/swagger": "^4.5.12",
     "cpu-utilization-observer": "git+https://github.com/ccims/cpu-utilization-observer.git#v1.0.0",
     "hbs": "^4.1.1",
+    "nest-service-registration-module": "git+https://github.com/ccims/nest-service-registration-module.git#1.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",

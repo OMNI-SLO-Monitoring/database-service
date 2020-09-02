@@ -5,9 +5,10 @@ import { ResponseModificationController } from './response-modification/response
 import { CpuUtilizationModule } from 'cpu-utilization-observer';
 import { RequestHandlerModule } from './request-handler/request-handler.module';
 import {ConfigModule } from '@nestjs/config';
+import { ServiceRegistrationModule } from 'nest-service-registration-module';
 
 @Module({
-  imports: [CpuUtilizationModule, RequestHandlerModule, ConfigModule.forRoot({isGlobal:true})],
+  imports: [CpuUtilizationModule, RequestHandlerModule, ConfigModule.forRoot({isGlobal:true}), ServiceRegistrationModule],
   controllers: [AppController, ResponseModificationController],
   providers: [AppService],
 })
