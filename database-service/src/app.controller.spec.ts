@@ -20,6 +20,9 @@ describe('App Controller', () => {
 
     controller = module.get<AppController>(AppController);
     appService = module.get<AppService>(AppService);
+
+    //set response time to 1s instead of default 5s so test pass faster
+    appService.setResponseTime(1000);
   });
 
   /**
@@ -28,8 +31,18 @@ describe('App Controller', () => {
    */
   it('should return the account worth of 9000', async () => {
     const expectedResult = 9000;
-    jest.spyOn(appService, 'getAccountWorth').mockResolvedValue(9000);
+
     expect(await controller.returnAccountWorth()).toBe(expectedResult);
+  });
+
+   /**
+   * Tests whether error is thrown when response type is set to false
+   * after trying to get account worth
+   */
+  it('should return an error in accountWorth due to responseType false', async () => {
+    appService.setResponseType(false);
+    expect.assertions(1);
+    return await controller.returnAccountWorth().catch(e => expect(e).toBeUndefined())
   });
 
   /**
@@ -38,8 +51,17 @@ describe('App Controller', () => {
    */
   it('should return ok', async () => {
     const expectedResult = 'Ok';
-    jest.spyOn(appService, 'sendResponseMessage').mockResolvedValue('Ok');
+
     expect(await controller.respondToRequest()).toBe(expectedResult);
+  });
+
+  /**
+   * Tests whether error is thrown when response type is set to false
+   */
+  it('should return an error in default request due to responseType false', async () => {
+    appService.setResponseType(false);
+    expect.assertions(1);
+    return await controller.respondToRequest().catch(e => expect(e).toBeUndefined())
   });
 
   afterEach(() => {

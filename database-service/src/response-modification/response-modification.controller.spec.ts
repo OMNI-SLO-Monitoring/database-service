@@ -31,10 +31,56 @@ describe('ResponseModification Controller', () => {
     cpuUtilizationService = module.get<CpuUtilizationService>(
       CpuUtilizationService,
     );
+
+    //faster response time so jest doesnt recognise timeout
+    appService.setResponseTime(500);
   });
 
   it('should be defined', () => {
     expect(responseModificationController).toBeDefined();
+  });
+
+
+  it('should change response times', () => {
+    const mockModification = {
+      responseTime: 1000
+    }
+
+    responseModificationController.applyModifications(mockModification);
+
+    expect(appService.getResponseTime()).toBe(mockModification.responseTime);
+    expect(requestHandlerService.getResponseTime()).toBe(mockModification.responseTime);
+  });
+
+  it('should correctly change responseType', async () => {
+    const mockModification = {
+      responseSuccessChecked: true
+    }
+
+    responseModificationController.applyModifications(mockModification);
+    expect(await appService.sendResponseMessage()).toBe('Ok')
+
+    mockModification.responseSuccessChecked = false;
+    responseModificationController.applyModifications(mockModification);
+    return await appService.sendResponseMessage().catch(e => expect(e).toBeUndefined());
+  });
+
+  it('should correctly set semantical correcntess', async () => {
+    const mockModification = {
+      correctResponseChecked : true
+    }
+    requestHandlerService.setResponseTime(10);
+
+    //semantically correct responses
+    responseModificationController.applyModifications(mockModification);
+    expect(await requestHandlerService.getBalance()).toBe(31);
+    expect(await requestHandlerService.getCustomerName()).toBe('Jeff');
+
+    //semantically incorrect responses
+    mockModification.correctResponseChecked = false;
+    responseModificationController.applyModifications(mockModification);
+    expect(await requestHandlerService.getBalance()).toBe('Jeff');
+    expect(await requestHandlerService.getCustomerName()).toBe(31);
   });
 
   afterEach(() => {
