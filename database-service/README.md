@@ -49,26 +49,25 @@ $ npm run start:prod
 
 ## Using the app
 
-```
 
-Go to localhost:4000 to customize the settings: Response type, response time, semantic correctness of response and simulated cpu utilization value.
+Go to localhost:4000 ([frontend](https://github.com/ccims/database-service/blob/dev/database-serviceui/README.md)) to customize the settings: Response type, response time, semantic correctness of response and simulated cpu utilization value.
 
-With localhost:3000, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:4000.
+With `localhost:3000`, one gets the status of the database service. This is again adjustable by toggling the Request Type Success checkbox and the response time of the response on localhost:4000.
 
-With localhost:3000/cpu/simulated, one gets the simulated cpu utilization value of the database service.
+With `localhost:3000/cpu/simulated`, one gets the simulated cpu utilization value of the database service.
 
-With localhost:3000/cpu, the actual cpu utilization value of the database service on the vm is fetched.
+With `localhost:3000/cpu`, the actual cpu utilization value of the database service on the vm is fetched.
 
-With localhost:3000/account-worth, one gets a fixed account worth. 
+With `localhost:3000/account-worth`, one gets a fixed account worth. 
 (This method is used in conjunction with the chained request use case where the account service calls the price service which then makes a request to this endpoint to get the account worth)
 
-With localhost:3000/api you can see all the Endpoints listed below, generated from the Swagger IO. 
-At localhost:3000/api-json is the Swagger JSON file.
+With `localhost:3000/api` you can see all the Endpoints listed below, generated from the Swagger IO. 
+The Swagger JSON file can be found at `localhost:3000/api-json`.
 
-# Request types
+### Request types
 
-There are different request types at different endpoints. The endpoint is specified after localhost:3000/request-handler/[endpoint].
-The semantic response type (correct/incorrect) can be adjusted in the UI of the database service at localhost:4000. A semantically incorrect response will either contain a simple string or a number in the case of GET requests and the request is rejected when a request is sent to the POST endpoint in the case of the incorrect response. The correct response will lead to a message denoting the success.
+There are different request types at different endpoints. The endpoint is specified after `localhost:3000/request-handler/[endpoint]`.
+The semantic response type (correct/incorrect) can be adjusted in the UI of the database service at `localhost:4000`. A semantically incorrect response will either contain a simple string or a number in the case of GET requests and the request is rejected when a request is sent to the POST endpoint in the case of the incorrect response. The correct response will lead to a message denoting the success.
 
 Endpoints:
 [GET]:
@@ -79,5 +78,5 @@ Endpoints:
 Here, we mainly compare the status codes.
 
 - add-customer: semantically correct response: "Customer [post body] successfully added!" - semantically incorrect response is the rejection of the request
-```
+
 

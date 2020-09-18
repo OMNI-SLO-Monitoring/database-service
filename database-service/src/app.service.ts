@@ -14,8 +14,8 @@ export class AppService {
 
   /**
    * returns a response message in form a promise
-   * a resolved promise is returned if success is true, meaning the response type is a success, and
-   * otherwise a rejected promise is returned, meaning the response type is an error
+   * a resolved promise is returned if success is true, meaning the response type is a success.
+   * Otherwise a rejected promise is returned, meaning the response type is an error
    *
    * @returns promise which is resolved if the success variable is true and rejected otherwise
    */
@@ -32,8 +32,8 @@ export class AppService {
   }
 
   /**
-   * returns the account worth as a promise after a certain adjustable timeout
-   * which is either resolved if the response type
+   * returns the account worth as a promise after a certain adjustable timeout.
+   * Promise is either resolved if the response type
    * is set to be a success or rejected if the response type is set to fail
    *
    * @returns promise which is contains a number representing the account worth when resolved

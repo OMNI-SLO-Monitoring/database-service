@@ -4,7 +4,7 @@ import { CpuUtilizationService } from 'cpu-utilization-observer';
 import { RequestHandlerService } from '../request-handler/request-handler.service';
 
 /**
- *  Controller to handle request, modify the response time, response time
+ *  Controller to handle request, modify the response type, response time
  *  and semantic type. On port /response-modification
  */
 @Controller('response-modification')

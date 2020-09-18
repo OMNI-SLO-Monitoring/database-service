@@ -28,6 +28,7 @@ export class RequestHandlerController {
 
   /**
    * Post requests to the endpoint /add-customer will be handled here
+   * 
    * @param body the content of the Post-request
    */
   @Post('add-customer')

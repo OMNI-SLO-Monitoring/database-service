@@ -1,4 +1,4 @@
-import { Module, Get } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { RequestHandlerController } from './request-handler.controller';
 import { RequestHandlerService } from './request-handler.service';
 

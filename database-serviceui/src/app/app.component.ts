@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +14,17 @@ export class AppComponent {
 
   constructor(private http: HttpClient) { }
 
-  backendUrl = environment.BACKEND_DB_SERVICE_URL+'response-modification';
+  backendUrl = environment.BACKEND_DB_SERVICE_URL + 'response-modification';
   // two way binding to ui inputs
   responseSuccessChecked = true;
   correctResponseChecked = true;
   responseTime = 5000;
   cpuUtilizationLoad = 60;
+
   /**
    * Creates the Json that can be send to the backend depending on the
    * input at the frontend
+   * 
    * @returns the error message json that was created 
    */
   createMessage() {
@@ -34,6 +36,7 @@ export class AppComponent {
     };
     return message;
   }
+
   /**
    * Sends the inputs of the frontend via a JSON to the backend
    */
